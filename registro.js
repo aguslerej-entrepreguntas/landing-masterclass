@@ -10,10 +10,11 @@ function escapar(t) {
 
 function mailHtml(nombre, whatsapp) {
   const boton = whatsapp
-    ? `<p style="margin:28px 0;"><a href="${escapar(whatsapp)}" style="display:inline-block;padding:14px 24px;background:#1F7A47;color:#ffffff;text-decoration:none;border-radius:4px;font-weight:600;">Unirme al grupo de WhatsApp</a></p>`
+    ? `<p style="margin:28px 0;"><a href="${escapar(whatsapp)}" style="display:inline-block;padding:14px 24px;background:#2E3BEA;color:#ffffff;text-decoration:none;border-radius:10px;font-weight:700;">Unirme al grupo de WhatsApp</a></p>`
     : '';
-  return `<!DOCTYPE html><html lang="es"><body style="margin:0;padding:0;background:#F5F4EF;">
-  <div style="max-width:560px;margin:0 auto;padding:32px 24px;font-family:Inter,Arial,sans-serif;font-size:16px;line-height:1.6;color:#3B3C41;">
+  return `<!DOCTYPE html><html lang="es"><body style="margin:0;padding:0;background:#F7F7F4;">
+  <div style="max-width:560px;margin:0 auto;padding:32px 24px;font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:1.6;color:#17181C;">
+    <p style="margin:0 0 28px;font-family:'Arial Black',Arial,sans-serif;font-weight:900;font-size:22px;letter-spacing:-0.5px;color:#17181C;">entrepreguntas<span style="color:#FF6A2B;">.</span></p>
     <p style="margin:0 0 16px;">Hola ${escapar(nombre)},</p>
     <p style="margin:0 0 16px;">Ya tenés tu lugar en la clase en vivo <strong style="color:#17181C;">De la corpo a la consultoría: cómo convertir tu experiencia en un negocio de consultoría sin ser influencer</strong>.</p>
     <p style="margin:0 0 16px;">La fecha y el link de Zoom los vamos a compartir en el grupo de WhatsApp de la clase. Si todavía no te sumaste, entrá desde acá:</p>
@@ -68,7 +69,10 @@ module.exports = async (req, res) => {
   const key = process.env.RESEND_API_KEY;
   const from = process.env.EMAIL_FROM;
   const audiencia = process.env.RESEND_AUDIENCE_ID;
-  const whatsapp = process.env.WHATSAPP_LINK || '';
+  // El mail siempre apunta a /grupo, que redirige al grupo vigente.
+  // Así, aunque cambies de grupo, los mails viejos llevan al grupo nuevo.
+  const host = req.headers['x-forwarded-host'] || req.headers.host;
+  const whatsapp = process.env.WHATSAPP_LINK && host ? `https://${host}/grupo` : '';
 
   if (!key || !from) {
     console.error('Faltan variables: RESEND_API_KEY o EMAIL_FROM');

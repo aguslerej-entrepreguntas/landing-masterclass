@@ -8,258 +8,266 @@
 <meta property="og:title" content="De la corpo a la consultoría">
 <meta property="og:description" content="Clase en vivo por Zoom: cómo convertir tu experiencia en un negocio de consultoría, sin ser influencer.">
 <meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232E3BEA'/%3E%3Ctext x='27' y='45' font-family='Arial Black,Arial,sans-serif' font-weight='900' font-size='40' fill='%23fff' text-anchor='middle'%3Ee%3C/text%3E%3Ccircle cx='48' cy='42' r='5' fill='%23FF6A2B'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
   :root {
     color-scheme: light;
-    --bg: #F5F4EF;
-    --ink: #17181C;
-    --text: #3B3C41;
-    --muted: #6B6C71;
-    --line: #DEDDD7;
-    --dark: #1A1B1F;
-    --red: #A0292A;
-    --red-hover: #861F20;
-    --serif: "Playfair Display", Georgia, "Times New Roman", serif;
-    --sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --papel: #F7F7F4;
+    --tinta: #17181C;
+    --cobalto: #2E3BEA;
+    --cobalto-hover: #2330C9;
+    --naranja: #FF6A2B;
+    --suave: #E4E6FD;
+    --gris: #5E5F66;
+    --linea: #E3E3DD;
+    --titulo: "Bricolage Grotesque", "Arial Black", system-ui, sans-serif;
+    --texto: "Instrument Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   }
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
   @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
   body {
     margin: 0;
-    background: var(--bg);
-    color: var(--text);
-    font: 400 1.0625rem/1.6 var(--sans);
+    background: var(--papel);
+    color: var(--tinta);
+    font: 400 1.0625rem/1.6 var(--texto);
     -webkit-font-smoothing: antialiased;
   }
-  img { max-width: 100%; display: block; }
-  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 1.5rem; }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 1.5rem; }
 
+  /* Logo: palabra en minúscula + punto naranja */
+  .logo {
+    display: inline-block;
+    font: 800 1.6rem/1 var(--titulo);
+    letter-spacing: -0.03em;
+    color: var(--tinta);
+    text-decoration: none;
+  }
+  .punto { color: var(--naranja); }
   header.top { padding: 1.75rem 0 0; }
-  header.top img { width: 190px; height: auto; }
+
+  h1, h2 { font-family: var(--titulo); font-weight: 800; letter-spacing: -0.035em; color: var(--tinta); }
 
   /* Hero */
   .hero {
     display: grid;
-    grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.85fr);
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.8fr);
     gap: 4rem;
     align-items: start;
-    padding: 4.5rem 0 5rem;
+    padding: 4rem 0 5rem;
   }
-  .format { margin: 0 0 1.5rem; color: var(--muted); font-weight: 500; }
-  h1 {
-    margin: 0;
-    font: 400 clamp(2.9rem, 7vw, 5.4rem)/0.98 var(--serif);
-    letter-spacing: -0.02em;
-    color: var(--ink);
-  }
-  h1 .to { display: block; font-style: italic; }
-  .promise {
+  .formato { margin: 0 0 1.25rem; font-weight: 500; color: var(--cobalto); }
+  h1 { margin: 0; font-size: clamp(3rem, 7.4vw, 5.8rem); line-height: 0.95; }
+  .bajada {
     margin: 1.75rem 0 0;
-    max-width: 30ch;
-    font: 500 clamp(1.2rem, 2.2vw, 1.45rem)/1.4 var(--sans);
-    color: var(--ink);
+    max-width: 28ch;
+    font: 700 clamp(1.35rem, 2.6vw, 1.8rem)/1.25 var(--titulo);
+    letter-spacing: -0.02em;
   }
-  .for { margin: 1.25rem 0 0; max-width: 46ch; }
-  .when {
+  .franja { background: var(--naranja); padding: 0 0.2em; white-space: nowrap; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+  .para { margin: 1.5rem 0 0; max-width: 46ch; color: var(--gris); }
+  .fecha {
     margin: 2rem 0 0;
-    padding-left: 1rem;
-    border-left: 3px solid var(--red);
-    max-width: 44ch;
-    color: var(--ink);
+    max-width: 46ch;
+    padding: 1rem 1.25rem;
+    background: var(--suave);
+    border-radius: 12px;
   }
+  .fecha strong { font-weight: 700; }
 
   /* Formulario */
-  .signup {
-    background: var(--dark);
-    color: #E9E8E3;
-    border-radius: 6px;
+  .registro {
+    background: var(--tinta);
+    color: #F7F7F4;
+    border-radius: 16px;
     padding: 2.25rem 2rem 2rem;
     position: sticky;
     top: 1.5rem;
   }
-  .signup h2 {
-    margin: 0 0 0.35rem;
-    font: 400 1.9rem/1.15 var(--serif);
-    color: #F5F4EF;
-  }
-  .signup .sub { margin: 0 0 1.75rem; color: #A9AAAF; font-size: 0.95rem; }
-  .field { margin-bottom: 1.1rem; }
-  .field label { display: block; margin-bottom: 0.4rem; font-size: 0.9rem; font-weight: 500; color: #E9E8E3; }
-  .field input {
+  .registro h2 { margin: 0 0 0.35rem; font-size: 2rem; line-height: 1.05; color: #F7F7F4; }
+  .registro .sub { margin: 0 0 1.75rem; color: #A6A7AD; font-size: 0.95rem; }
+  .campo { margin-bottom: 1.1rem; }
+  .campo label { display: block; margin-bottom: 0.4rem; font-size: 0.92rem; font-weight: 500; }
+  .campo input {
     width: 100%;
-    padding: 0.85rem 0.9rem;
-    font: 400 1rem/1.3 var(--sans);
-    color: var(--ink);
-    background: #F5F4EF;
+    padding: 0.85rem 0.95rem;
+    font: 400 1rem/1.3 var(--texto);
+    color: var(--tinta);
+    background: var(--papel);
     border: 2px solid transparent;
-    border-radius: 4px;
+    border-radius: 10px;
   }
-  .field input:focus { outline: none; border-color: #86CFA4; }
-  .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
-  button.cta, a.cta {
+  .campo input:focus { outline: none; border-color: var(--naranja); }
+  .trampa { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+  .boton {
     display: inline-block;
     width: 100%;
     margin-top: 0.5rem;
     padding: 1rem 1.25rem;
-    font: 600 1.05rem/1.2 var(--sans);
+    font: 700 1.05rem/1.2 var(--texto);
     text-align: center;
     text-decoration: none;
     color: #fff;
-    background: var(--red);
+    background: var(--cobalto);
     border: 0;
-    border-radius: 4px;
+    border-radius: 10px;
     cursor: pointer;
   }
-  button.cta:hover, a.cta:hover { background: var(--red-hover); }
-  button.cta:focus-visible, a.cta:focus-visible { outline: 3px solid #86CFA4; outline-offset: 3px; }
-  button.cta[disabled] { opacity: 0.7; cursor: progress; }
-  .note { margin: 0.9rem 0 0; font-size: 0.85rem; color: #A9AAAF; }
+  .boton:hover { background: var(--cobalto-hover); }
+  .boton:focus-visible { outline: 3px solid var(--naranja); outline-offset: 3px; }
+  .boton[disabled] { opacity: 0.7; cursor: progress; }
+  .nota { margin: 0.9rem 0 0; font-size: 0.85rem; color: #A6A7AD; }
   .error {
     display: none;
     margin: 0.9rem 0 0;
     padding: 0.7rem 0.85rem;
     font-size: 0.92rem;
-    color: #fff;
-    background: rgba(160, 41, 42, 0.35);
-    border-left: 3px solid #E0605F;
-    border-radius: 3px;
+    background: rgba(255, 106, 43, 0.16);
+    border-left: 3px solid var(--naranja);
+    border-radius: 6px;
   }
-  .error.show { display: block; }
+  .error.ver { display: block; }
 
   /* Secciones */
-  section.block { padding: 4.5rem 0; border-top: 1px solid var(--line); }
-  section.block h2 {
-    margin: 0 0 2rem;
-    font: 400 clamp(1.9rem, 3.6vw, 2.6rem)/1.15 var(--serif);
-    color: var(--ink);
+  .seccion { padding: 5rem 0; }
+  .seccion h2 { margin: 0 0 2.25rem; font-size: clamp(2rem, 4vw, 3rem); line-height: 1; }
+
+  .suena { background: var(--suave); }
+  .frases { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem; margin: 0; padding: 0; list-style: none; }
+  .frases li {
+    background: #fff;
+    border-radius: 16px;
+    padding: 1.75rem 1.6rem;
+    font: 700 1.2rem/1.3 var(--titulo);
+    letter-spacing: -0.015em;
   }
-  .quotes { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2.5rem; margin: 0; padding: 0; list-style: none; }
-  .quotes li {
-    font: italic 400 1.3rem/1.45 var(--serif);
-    color: var(--ink);
-  }
-  .quotes li::before { content: "“"; display: block; font-size: 3rem; line-height: 0.6; color: var(--red); margin-bottom: 0.6rem; }
-  .after-quotes { margin: 2.5rem 0 0; max-width: 56ch; }
+  .frases li::before { content: "“"; display: block; font-size: 2.6rem; line-height: 0.7; color: var(--naranja); margin-bottom: 0.5rem; }
+  .despues { margin: 2.5rem 0 0; max-width: 52ch; font-size: 1.15rem; }
 
-  .takeaways { margin: 0; padding: 0; list-style: none; max-width: 62ch; }
-  .takeaways li { padding: 1.25rem 0 1.25rem 2.25rem; border-bottom: 1px solid var(--line); position: relative; color: var(--ink); }
-  .takeaways li:first-child { padding-top: 0; }
-  .takeaways li::before {
-    content: ""; position: absolute; left: 0; top: 1.85rem; width: 1rem; height: 2px; background: var(--red);
-  }
-  .takeaways li:first-child::before { top: 0.6rem; }
+  .llevas { margin: 0; padding: 0; list-style: none; max-width: 64ch; }
+  .llevas li { position: relative; padding: 1.3rem 0 1.3rem 2rem; border-bottom: 1px solid var(--linea); font-size: 1.1rem; }
+  .llevas li:first-child { padding-top: 0.2rem; }
+  .llevas li::before { content: ""; position: absolute; left: 0; top: 50%; width: 0.7rem; height: 0.7rem; margin-top: -0.35rem; border-radius: 50%; background: var(--cobalto); }
+  .llevas li:first-child::before { margin-top: -0.9rem; }
 
-  .host { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 3rem; align-items: start; }
-  .host h2 { margin-bottom: 0; }
-  .host p { margin: 0 0 1rem; max-width: 56ch; }
+  .quien { border-top: 1px solid var(--linea); }
+  .quien-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr); gap: 3rem; align-items: start; }
+  .quien h2 { margin-bottom: 1.5rem; }
+  .dato { font: 800 clamp(3.5rem, 7vw, 5rem)/0.9 var(--titulo); letter-spacing: -0.04em; color: var(--cobalto); }
+  .dato-txt { margin: 0.5rem 0 0; color: var(--gris); }
+  .quien p.bio { margin: 0 0 1rem; max-width: 56ch; }
 
-  .closing { padding: 5rem 0 5.5rem; border-top: 1px solid var(--line); text-align: center; }
-  .closing h2 { margin: 0 auto 0.75rem; max-width: 20ch; font: 400 clamp(2rem, 4.2vw, 3rem)/1.1 var(--serif); color: var(--ink); }
-  .closing p { margin: 0 auto 2rem; max-width: 44ch; }
-  .closing a.cta { width: auto; padding-left: 2.25rem; padding-right: 2.25rem; }
+  .cierre { background: var(--cobalto); color: #fff; padding: 5.5rem 0; }
+  .cierre h2 { margin: 0 0 1rem; max-width: 18ch; font-size: clamp(2.2rem, 5vw, 3.8rem); line-height: 1; color: #fff; }
+  .cierre p { margin: 0 0 2rem; max-width: 44ch; font-size: 1.1rem; color: #E4E6FD; }
+  .cierre .boton { width: auto; padding-left: 2.25rem; padding-right: 2.25rem; background: #fff; color: var(--tinta); }
+  .cierre .boton:hover { background: var(--suave); }
 
-  footer { padding: 2rem 0 2.5rem; border-top: 1px solid var(--line); font-size: 0.85rem; color: var(--muted); }
+  footer { padding: 2rem 0 2.5rem; font-size: 0.85rem; color: var(--gris); }
+  footer .logo { font-size: 1.1rem; margin-right: 0.75rem; }
 
-  @media (max-width: 860px) {
+  @media (max-width: 880px) {
     .hero { grid-template-columns: 1fr; gap: 2.75rem; padding: 2.75rem 0 3.5rem; }
-    .signup { position: static; }
-    .quotes { grid-template-columns: 1fr; gap: 1.75rem; }
-    .host { grid-template-columns: 1fr; gap: 1.25rem; }
-    section.block { padding: 3.25rem 0; }
+    .registro { position: static; }
+    .frases { grid-template-columns: 1fr; }
+    .quien-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .seccion, .cierre { padding: 3.5rem 0; }
   }
   @media (max-width: 420px) {
-    header.top img { width: 160px; }
-    .signup { padding: 1.75rem 1.25rem 1.5rem; }
+    .registro { padding: 1.75rem 1.25rem 1.5rem; }
   }
 </style>
 </head>
 <body>
 
 <header class="top">
-  <div class="wrap"><img src="/logo.png" alt="Entrepreguntas" width="690" height="90"></div>
+  <div class="wrap"><a class="logo" href="/" aria-label="Entrepreguntas">entrepreguntas<span class="punto">.</span></a></div>
 </header>
 
 <main>
   <div class="wrap">
     <div class="hero">
       <div>
-        <p class="format">Clase en vivo y gratuita por Zoom</p>
-        <h1>De la corpo <span class="to">a la consultoría</span></h1>
-        <p class="promise">Cómo convertir tu experiencia en un negocio de consultoría, sin ser influencer.</p>
-        <p class="for">Para profesionales con muchos años en empresas que quieren trabajar por su cuenta, pero todavía no saben cómo explicar lo que ofrecen ni cómo venderlo.</p>
-        <p class="when">La fecha está por confirmarse. Cuando te anotes te sumás al grupo de WhatsApp, y por ahí te avisamos el día y te pasamos el link.</p>
+        <p class="formato">Clase en vivo y gratuita por Zoom</p>
+        <h1>De la corpo a la consultoría<span class="punto">.</span></h1>
+        <p class="bajada">Cómo convertir tu experiencia en un negocio de consultoría, <span class="franja">sin ser influencer</span></p>
+        <p class="para">Para consultores con experiencia corporativa que ahora trabajan por su cuenta, o quieren hacerlo, y todavía no saben explicar en una frase qué venden.</p>
+        <p class="fecha"><strong>Fecha a confirmar.</strong> Cuando te anotes, te sumás al grupo de WhatsApp. Por ahí avisamos el día y pasamos el link.</p>
       </div>
 
-      <form class="signup" id="registro" novalidate>
+      <form class="registro" id="registro" novalidate>
         <h2>Reservá tu lugar</h2>
-        <p class="sub">Te lleva 20 segundos.</p>
-        <div class="field">
+        <p class="sub">Nombre y email. Nada más.</p>
+        <div class="campo">
           <label for="nombre">Nombre</label>
           <input id="nombre" name="nombre" type="text" autocomplete="given-name" required maxlength="80">
         </div>
-        <div class="field">
+        <div class="campo">
           <label for="email">Email</label>
           <input id="email" name="email" type="email" autocomplete="email" inputmode="email" required maxlength="160">
         </div>
-        <div class="hp" aria-hidden="true">
+        <div class="trampa" aria-hidden="true">
           <label for="empresa">No completes este campo</label>
           <input id="empresa" name="empresa" type="text" tabindex="-1" autocomplete="off">
         </div>
-        <button class="cta" type="submit" id="enviar">Reservar mi lugar</button>
+        <button class="boton" type="submit" id="enviar">Reservar mi lugar</button>
         <p class="error" id="error" role="alert"></p>
-        <p class="note">Te mandamos la confirmación a ese email.</p>
+        <p class="nota">Te mandamos la confirmación a ese email.</p>
       </form>
     </div>
   </div>
 
-  <section class="block">
+  <section class="seccion suena">
     <div class="wrap">
-      <h2>¿Te suena alguna de estas?</h2>
-      <ul class="quotes">
-        <li>Tengo quince años de experiencia y cuando me preguntan a qué me dedico, termino dando un discurso de cinco minutos.</li>
-        <li>Sé hacer muchas cosas, pero no sé cómo juntarlas en algo concreto que alguien quiera comprar.</li>
-        <li>Veo consultores que viven publicando en LinkedIn e Instagram. Yo no quiero eso.</li>
+      <h2>¿Te suena alguna?</h2>
+      <ul class="frases">
+        <li>Tengo 15 años de experiencia y cuando me preguntan qué hago, doy un discurso de cinco minutos.</li>
+        <li>Sé hacer muchas cosas. No sé cómo juntarlas en algo que alguien quiera comprar.</li>
+        <li>Veo consultores que viven publicando en LinkedIn. Yo no quiero eso.</li>
       </ul>
-      <p class="after-quotes">No te falta experiencia. Te falta ordenarla en una propuesta simple y una forma de venderla que vaya con vos.</p>
+      <p class="despues">No te falta experiencia. Te falta una propuesta simple y una forma de venderla que vaya con vos.</p>
     </div>
   </section>
 
-  <section class="block">
+  <section class="seccion">
     <div class="wrap">
-      <h2>Qué te vas a llevar</h2>
-      <ul class="takeaways">
-        <li>Cómo resumir años de experiencia en una propuesta que se entiende en una frase.</li>
-        <li>Cómo elegir qué problema resolver y para quién, para dejar de ofrecer un poco de todo.</li>
-        <li>Cómo conseguir tus primeros clientes sin depender de publicar contenido todos los días.</li>
+      <h2>Qué te llevás</h2>
+      <ul class="llevas">
+        <li>Cómo resumir años de experiencia en una propuesta que se entiende en 10 segundos.</li>
+        <li>Cómo elegir qué vendés, a quién y a cuánto, para dejar de ofrecer un poco de todo.</li>
+        <li>Cómo conseguir clientes sin publicar todos los días: una hora de grabación por mes y anuncios simples.</li>
       </ul>
     </div>
   </section>
 
-  <section class="block">
-    <div class="wrap host">
-      <h2>Quién da la clase</h2>
+  <section class="seccion quien">
+    <div class="wrap quien-grid">
       <div>
-        <p>Soy Agustín, de Entrepreguntas. Acompañamos uno a uno a consultores y profesionales independientes para que tengan un servicio claro, consigan clientes con anuncios simples y vendan con un proceso ordenado.</p>
-        <p>En esta clase te muestro el mismo camino que recorremos con nuestros clientes, empezando por lo más difícil: decir en pocas palabras qué hacés y para quién.</p>
+        <h2>Quién da la clase</h2>
+        <div class="dato">+200</div>
+        <p class="dato-txt">propuestas validadas</p>
+      </div>
+      <div>
+        <p class="bio">Soy Agustín, de Entrepreguntas. Trabajamos con consultores que dejaron la corporación y ahora venden su experiencia por su cuenta.</p>
+        <p class="bio">En esta clase te muestro el mismo camino que hacemos con ellos, empezando por lo más difícil: decir qué hacés y para quién, en una frase.</p>
       </div>
     </div>
   </section>
 
-  <section class="closing">
+  <section class="cierre">
     <div class="wrap">
-      <h2>Tu experiencia ya vale. Falta que se entienda.</h2>
-      <p>La clase es gratuita y por Zoom. Anotate y te avisamos la fecha por WhatsApp.</p>
-      <a class="cta" href="#registro">Reservar mi lugar</a>
+      <h2>Tu experiencia ya vale. Falta que se note afuera<span class="punto">.</span></h2>
+      <p>La clase es gratuita y por Zoom. Te anotás y te avisamos la fecha por WhatsApp.</p>
+      <a class="boton" href="#registro">Reservar mi lugar</a>
     </div>
   </section>
 </main>
 
 <footer>
-  <div class="wrap">© 2026 Entrepreguntas</div>
+  <div class="wrap"><span class="logo">entrepreguntas<span class="punto">.</span></span> © 2026</div>
 </footer>
 
 <script>
@@ -268,19 +276,19 @@
     var btn = document.getElementById('enviar');
     var err = document.getElementById('error');
 
-    function showError(msg) {
+    function mostrarError(msg) {
       err.textContent = msg;
-      err.classList.add('show');
+      err.classList.add('ver');
     }
 
     form.addEventListener('submit', async function (e) {
       e.preventDefault();
-      err.classList.remove('show');
+      err.classList.remove('ver');
 
       var nombre = form.nombre.value.trim();
       var email = form.email.value.trim();
-      if (!nombre) { showError('Escribí tu nombre.'); form.nombre.focus(); return; }
-      if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { showError('Revisá el email: parece que le falta algo.'); form.email.focus(); return; }
+      if (!nombre) { mostrarError('Escribí tu nombre.'); form.nombre.focus(); return; }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { mostrarError('Revisá el email: parece que le falta algo.'); form.email.focus(); return; }
 
       btn.disabled = true;
       btn.textContent = 'Reservando tu lugar…';
@@ -295,7 +303,7 @@
         if (!res.ok || !data.ok) throw new Error(data.error || 'No pudimos reservar tu lugar. Probá de nuevo en un minuto.');
         window.location.href = '/gracias';
       } catch (ex) {
-        showError(ex.message || 'No pudimos reservar tu lugar. Probá de nuevo en un minuto.');
+        mostrarError(ex.message || 'No pudimos reservar tu lugar. Probá de nuevo en un minuto.');
         btn.disabled = false;
         btn.textContent = 'Reservar mi lugar';
       }
