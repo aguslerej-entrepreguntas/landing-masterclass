@@ -1,3 +1,4 @@
+api/
 // Recibe el formulario de la landing: guarda el contacto en Resend
 // y le manda el mail de confirmación.
 const RESEND = 'https://api.resend.com';
